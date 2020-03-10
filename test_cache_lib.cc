@@ -1,4 +1,8 @@
-
+#define CATCH_CONFIG_MAIN
+#include <iostream>
+#include "catch.hpp"
+#include "cache.hh"
+#include "fifo_evictor.h"
 
 //each comment line becomes one test
 //each test will be its own section, and the cache will be reset at the end of each
@@ -165,7 +169,7 @@ TEST_CASE("Hash Functions")
     SECTION("Hash Use"){
         test_cache.set("key_one", "value_1", 8);
 
-        REQUIRE(out_vec.back() == 2);
+        REQUIRE(in_vec.back() == "key_one");
         
         test_cache.reset();
     }
@@ -180,9 +184,9 @@ TEST_CASE("Fifo Evictor")
     
     SECTION("Evict Returns First"){
         FifoEvictor evictor = FifoEvictor();//no reset for Evictor so we make a new one each time
-        evictor.touch("key_1");
-        evictor.touch("key_2");
-        evictor.touch("key_3");
+        evictor.touch_key("key_1");
+        evictor.touch_key("key_2");
+        evictor.touch_key("key_3");
         
         REQUIRE(evictor.evict() == "key_1");//Should be key_type now, which is just string, so no need to make/deref a char pointer
 
@@ -190,9 +194,9 @@ TEST_CASE("Fifo Evictor")
     
     SECTION("Evict Removes"){
         FifoEvictor evictor = FifoEvictor();//no reset for Evictor so we make a new one each time
-        evictor.touch("key_1");
-        evictor.touch("key_2");
-        evictor.touch("key_3");
+        evictor.touch_key("key_1");
+        evictor.touch_key("key_2");
+        evictor.touch_key("key_3");
         
         evictor.evict();
         evictor.evict();
