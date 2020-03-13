@@ -61,7 +61,6 @@ In this case, we had to change the makefile, as it turns out our lambda function
 |Evict Returns First| Pass|
 |Evict Removes| Pass|
 |Evict on empty returns null| Fail|
-|Evict nothing is ""| Evictor returns the string `""` when it cannot find a candidate to evict |Pass|
 
 
 ## `squinkums`
@@ -84,7 +83,7 @@ Afterwards, their `cache_lib.cc` failed to compile. The result is attached in `s
 |Hash Use           | Fail |
 |Evict Returns First| Fail |
 |Evict Removes      | Fail |
-|Evict nothing is ""| Fail |
+|Evict on empty returns null| Fail|
 
 
 ## `InternetUnexplorered`
@@ -105,4 +104,4 @@ Aaron and Alex didn't do anything weird. I simply named their files as `Internet
 |Hash Use           | Pass |
 |Evict Returns First| Pass |
 |Evict Removes      | Pass |
-|Evict nothing is ""| Pass |
+|Evict on empty returns null| Pass|
