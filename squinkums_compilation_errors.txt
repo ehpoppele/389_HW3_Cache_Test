@@ -1,0 +1,31 @@
+vagrant@ubuntu:/vagrant/systems/389_HW3_Cache_Test$ make squinkums_main.bin
+g++-8 -Wall -Wextra -pedantic -Werror -std=c++17 -O0 -g   -c -o squinkums_cache_lib.o squinkums_cache_lib.cc
+squinkums_cache_lib.cc: In constructor ‘Cache::Impl::Impl(Cache::Impl::size_type, float, Evictor*, Cache::Impl::hash_func)’:
+squinkums_cache_lib.cc:42:21: error: comparison of integer expressions of different signedness: ‘int’ and ‘Cache::Impl::size_type’ {aka ‘unsigned int’} [-Werror=sign-compare]
+      for(int i = 0;i<cur_table_size_;i++)
+                    ~^~~~~~~~~~~~~~~~
+squinkums_cache_lib.cc: In member function ‘void Cache::Impl::set(key_type&, Cache::Impl::val_type, Cache::Impl::size_type, bool)’:
+squinkums_cache_lib.cc:107:32: error: unused variable ‘val_size’ [-Werror=unused-variable]
+                     const auto val_size = del(evicted);
+                                ^~~~~~~~
+squinkums_cache_lib.cc:155:40: error: unused variable ‘val_size’ [-Werror=unused-variable]
+                             const auto val_size = del(evicted);
+                                        ^~~~~~~~
+squinkums_cache_lib.cc:191:32: error: comparison of integer expressions of different signedness: ‘int’ and ‘const size_type’ {aka ‘const unsigned int’} [-Werror=sign-compare]
+             for (auto i = 0; i < size; i++)
+                              ~~^~~~~~
+squinkums_cache_lib.cc: In member function ‘const byte_type* Cache::Impl::get(key_type&, Cache::Impl::size_type&) const’:
+squinkums_cache_lib.cc:237:28: error: comparison of integer expressions of different signedness: ‘int’ and ‘Cache::Impl::size_type’ {aka ‘unsigned int’} [-Werror=sign-compare]
+         for (auto i = 0; i < val_size; i++)
+                          ~~^~~~~~~~~~
+squinkums_cache_lib.cc: In member function ‘void Cache::Impl::reset()’:
+squinkums_cache_lib.cc:338:22: error: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Cache::Impl::Link_list*>::size_type’ {aka ‘long unsigned int’} [-Werror=sign-compare]
+      for(auto i = 0;i<hashtable.size();i++)
+                     ~^~~~~~~~~~~~~~~~~
+squinkums_cache_lib.cc: In constructor ‘Cache::Impl::Link_list::Link_list(key_type&, Cache::Impl::val_type, Cache::Impl::size_type, Cache::Impl::Link_list*)’:
+squinkums_cache_lib.cc:369:21: error: comparison of integer expressions of different signedness: ‘int’ and ‘Cache::Impl::size_type’ {aka ‘unsigned int’} [-Werror=sign-compare]
+    for (auto i = 0;i<size;i++)
+                    ~^~~~~
+cc1plus: all warnings being treated as errors
+<builtin>: recipe for target 'squinkums_cache_lib.o' failed
+make: *** [squinkums_cache_lib.o] Error 1
