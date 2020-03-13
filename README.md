@@ -41,3 +41,12 @@ We used Catch2 as our testing library. We created a global test cache, and we re
 |Evict Returns First| The FIFO Evictor evicts the first key added to the cache |Pass|
 |Evict Removes| Having evicted the first key added to the cache, the evictor will evict the second key added, and so on |Pass|
 |Evict on empty returns null| Evictor returns the string `""` when it cannot find a candidate to evict |Pass|
+
+
+## `squinkums`
+Weihang and Liam used a `Null_evictor` class in their implementation of the cache_lib. I had a fun time wrestling with the compiler until I realized how to include & link the files for the Null_evictor.
+
+Afterwards, their `cache_lib.cc` failed to compile. The result is attached in `squinkums_compilation_errors.txt`. I have communicated this result to the authors.
+
+## `InternetUnexplorered`
+Aaron and Alex didn't do anything weird. I simply named their files as `InternetUnexplorer_`, changed the includes and everything compiled smoothly.

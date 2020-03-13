@@ -1,7 +1,7 @@
 
 #include "cache.hh"
 #include <unordered_map>
-#include "null_evictor.h"
+#include "squinkums_null_evictor.h"
 #include <iostream>
 #include <algorithm>
 #include "fifo_evictor.cc"
