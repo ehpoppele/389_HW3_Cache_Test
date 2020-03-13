@@ -204,6 +204,11 @@ TEST_CASE("Fifo Evictor")
 
     }
     
+    SECTION("Evict on empty returns null"){
+        FifoEvictor evictor = FifoEvictor();
+        REQUIRE(evictor.evict() == "");
+    }
+    
 }
     
     
