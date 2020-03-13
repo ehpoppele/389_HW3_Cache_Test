@@ -40,7 +40,7 @@ We used Catch2 as our testing library. We created a global test cache, and we re
 |-----------------|---------------|------|
 |Evict Returns First| The FIFO Evictor evicts the first key added to the cache |Pass|
 |Evict Removes| Having evicted the first key added to the cache, the evictor will evict the second key added, and so on |Pass|
-|Evict on empty returns null| Evictor returns the string `""` when it cannot find a candidate to evict |Pass|
+|Evict nothing is ""| Evictor returns the string `""` when it cannot find a candidate to evict |Pass|
 
 
 ## `squinkums`
@@ -49,4 +49,21 @@ Weihang and Liam used a `Null_evictor` class in their implementation of the cach
 Afterwards, their `cache_lib.cc` failed to compile. The result is attached in `squinkums_compilation_errors.txt`. I have communicated this result to the authors.
 
 ## `InternetUnexplorered`
-Aaron and Alex didn't do anything weird. I simply named their files as `InternetUnexplorer_`, changed the includes and everything compiled smoothly.
+Aaron and Alex didn't do anything weird. I simply named their files as `InternetUnexplorer_`, changed the includes and everything compiled smoothly. Their code passed all our tests.### Set and Get
+|Name               |Description    |Status|
+|-------------------|---------------|------|
+|Nonentry Get       | Pass|
+|Normal Set/Get     | Pass|
+|Overwrite and Get  | Pass|
+|Total Size         | Pass|
+|Get Size           | Pass|
+|Rejection          | Pass|
+|Overwrite Size     | Pass|
+|Delete and Get     | Pass|
+|Delete and Size    | Pass|
+|Reset and Get      | Pass|
+|Reset and Size     | Pass|
+|Hash Use           | Pass|
+|Evict Returns First| Pass|
+|Evict Removes      | Pass|
+|Evict nothing is ""| Pass|
