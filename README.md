@@ -1,5 +1,7 @@
 ## 389_HW3_Cache_Test
-We used Catch2 as our testing library. We created a global test cache, and we reset it at the end of each `SECTION` in our testing. In order to test how the cache uses the hash function in section 5, we specify a hash function at the beginning.
+Eli Poppele and Jon Takagi
+
+We used Catch2 as our testing library. We created a global test cache, and we reset it at the end of each `SECTION` in our testing. In order to test how the cache uses the hash function in section 5, we specify a hash function at the beginning. Our test file is `test_cache_lib.cc`, and can be compiled for our current code with the makefile. All tests pass on our own code.
 
 ### Set and Get
 |Name             |Description    |Status|
