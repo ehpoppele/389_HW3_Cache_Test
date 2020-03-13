@@ -41,3 +41,23 @@ We used Catch2 as our testing library. We created a global test cache, and we re
 |Evict Returns First| The FIFO Evictor evicts the first key added to the cache |Pass|
 |Evict Removes| Having evicted the first key added to the cache, the evictor will evict the second key added, and so on |Pass|
 |Evict on empty returns null| Evictor returns the string `""` when it cannot find a candidate to evict |Pass|
+
+### First Test: Eric and Vinay
+In this case, we had to change the makefile, as it turns out our lambda function for hashing won't compile under clang, even though it works fine with g++ with all the flags on. After making this change, the cache passes 11 of our 15 tests, failing 3 related to size and one related to the return from an empty evictor. The results are also in the table below:
+|Name               |Status|
+|-----------------------|------|
+|Nonentry Get | Pass|
+|Normal Set/Get | Pass|
+|Overwrite and Get | Pass|
+|Total Size | Pass|
+|Get Size | Fail|
+|Rejection | Pass|
+|Overwrite Size| Fail|
+|Delete and Get | Pass|
+|Delete and Size| Fail|
+|Reset and Get| Pass|
+|Reset and Size| Pass|
+|Hash Use| Pass|
+|Evict Returns First| Pass|
+|Evict Removes| Pass|
+|Evict on empty returns null| Fail|
