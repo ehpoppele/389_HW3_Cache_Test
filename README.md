@@ -40,3 +40,4 @@ We used Catch2 as our testing library. We created a global test cache, and we re
 |-----------------|---------------|------|
 |Evict Returns First| The FIFO Evictor evicts the first key added to the cache |Pass|
 |Evict Removes| Having evicted the first key added to the cache, the evictor will evict the second key added, and so on |Pass|
+|Evict on empty returns null| Evictor returns the string `""` when it cannot find a candidate to evict |Pass|
